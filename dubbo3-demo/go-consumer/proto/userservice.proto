@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package api;
+
+//golang
+option go_package = "./;api";
+
+//java
+option java_multiple_files = true;
+option java_package = "com.xcrj";
+option java_outer_classname = "UserServiceProto";
+
+service UserService{
+  //rpc方法 方法名 (入参) returns (出参)
+  rpc GetUser (UserRequest) returns (User) {}
+}
+
+message UserRequest{
+  string uid = 1;
+}
+
+message User{
+  //1, 2是序号
+  string uid = 1;
+  string username = 2;
+}
